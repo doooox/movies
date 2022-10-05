@@ -2,6 +2,7 @@
 
 @section('title', 'Movies')
 
+
 @section('content')
     <ul class="list-group">
         @foreach ($movies as $movie)
