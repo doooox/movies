@@ -14,8 +14,14 @@ class Movie extends Model
     {
         return self::all();
     }
-    public static function getGenre()
+    public function comments()
     {
-        return self::where('genre', 'Action')->get();
+        return $this->hasMany(Comment::class);
+    }
+    public function addComment($content)
+    {
+        $this->comments()->create([
+            'content' => $content
+        ]);
     }
 }
