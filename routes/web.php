@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\GenresController;
 
 
 /*
@@ -16,12 +17,10 @@ use App\Http\Controllers\CommentsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/movies', [MoviesController::class, 'index']);
 Route::get('/movie/{id}', [MoviesController::class, 'show'])->name('single-movie');
 Route::post('/movies', [MoviesController::class, 'store']);
 Route::get('/movies/create', [MoviesController::class, 'create']);
 Route::post('/movie/{id}/comments', [CommentsController::class, 'store']);
+Route::get('/genre/{genre}', [GenresController::class, 'show'])->name('movie-genre');
